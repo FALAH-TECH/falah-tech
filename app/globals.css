@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0b0f1a;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --accent-blue: #3b82f6;
+  --text-primary: #f5f9ff;
+  --text-muted: #a7b2c9;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --glow-soft: rgba(96, 165, 250, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.14), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.12), transparent 30%),
+    var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(circle, #ffffff 0.3px, transparent 0.5px);
+  background-size: 3px 3px;
+  z-index: 0;
+}
+
+main,
+section,
+nav,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card {
+  backdrop-filter: blur(14px);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.glow-hover {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glow-hover:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4), 0 0 32px rgba(59, 130, 246, 0.22);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
